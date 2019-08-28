@@ -1,0 +1,30 @@
+﻿<h1>User Data</h1>
+
+<p>
+    <a [routerLink]="['/add-user']">Create New</a>
+</p>
+<table class='table' *ngIf="userList">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Date Of Birth</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList">
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.mobile }}</td>
+            <td>{{ user.dateOfBirth }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+            <td>
+                <a [routerLink]="['/add-user/', user.id]">Edit</a> |
+                <a [routerLink]="" (click)="delete(user.id)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
