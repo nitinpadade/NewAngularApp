@@ -6,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using AspCoreDomainModels.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 
 namespace ASPCoreWithAngular
 {
@@ -28,6 +29,14 @@ namespace ASPCoreWithAngular
             else
                 return new LoggedInUserModel();
 
+        }
+
+        public int PageNumber()
+        {
+            var queryString = HttpContext.Request.Query;
+            StringValues page;
+            queryString.TryGetValue("page", out page);
+            return int.Parse(page);
         }
     }
 }

@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Cors;
 using AspCoreDomainModels.Models;
 using AspCoreDomainModels.Parameters;
 using AspCoreData;
+using AspCoreDomainModels.Models.UserList;
+using Microsoft.Extensions.Primitives;
 
 namespace ASPCoreWithAngular.Controllers
 {
     [Produces("application/json")]
-   
+
     public class UsersController : BaseController
     {
 
@@ -18,9 +20,9 @@ namespace ASPCoreWithAngular.Controllers
         private readonly ICommand<UserAddEditModel> _command;
         private readonly ICommand<int> _deleteCommand;
         private readonly IQueryWithParameters<UserAddEditModel, UserByIdParameter> _userGetQuery;
-        private readonly IQueryWithParameters<QueryResultList<UserListModel>, UserListParameter> _userListQuery;
+        private readonly IQueryWithParameters<QueryResult<UserListPaginationModel>, UserListParameter> _userListQuery;
         public UsersController(IUserList userList, ICommand<UserAddEditModel> command, IQueryWithParameters<UserAddEditModel, UserByIdParameter> userGetQuery,
-            ICommand<int> deleteCommand, IQueryWithParameters<QueryResultList<UserListModel>, UserListParameter> userListQuery)
+            ICommand<int> deleteCommand, IQueryWithParameters<QueryResult<UserListPaginationModel>, UserListParameter> userListQuery)
         {
             _userList = userList;
             _command = command;
@@ -33,11 +35,18 @@ namespace ASPCoreWithAngular.Controllers
         [Authorize]
         [EnableCors("Cors")]
         [Route("api/Users")]
-       
+
         public IActionResult Get()
         {
             //var result = _userList.Get(LoggedInUserInfo());
-            var result = _userListQuery.Execute(new UserListParameter { PageSize = 10 });
+            var result = _userListQuery.Execute(new UserListParameter
+            {
+                PageSize = 5,
+                PageNumber = PageNumber(),
+                Direction = false,
+                OrderBy = "Id",
+                SearchKey = ""
+            });
             return Ok(result);
         }
 
@@ -45,7 +54,7 @@ namespace ASPCoreWithAngular.Controllers
         [Authorize]
         [EnableCors("Cors")]
         [Route("api/Users/{id}")]
-        
+
         public IActionResult Get(int id)
         {
             var queryParams = new UserByIdParameter { Id = id };
@@ -56,7 +65,7 @@ namespace ASPCoreWithAngular.Controllers
         [HttpPost]
         [Authorize]
         [EnableCors("Cors")]
-        [Route("api/Users/save")]           
+        [Route("api/Users/save")]
         public IActionResult Post([FromBody]UserAddEditModel model)
         {
             var result = _command.Execute(model);

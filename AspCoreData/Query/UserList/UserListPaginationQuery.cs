@@ -1,5 +1,6 @@
 ﻿using AspCoreData.Contract;
 using AspCoreDomainModels.Models;
+using AspCoreDomainModels.Models.UserList;
 using AspCoreDomainModels.Parameters;
 using System;
 using System.Collections.Generic;
@@ -7,19 +8,25 @@ using System.Linq;
 
 namespace AspCoreData.Query.UserList
 {
-    public class UserListPaginationQuery : IQueryWithParameters<QueryResultList<UserListModel>, UserListParameter>
+    public class UserListPaginationQuery : IQueryWithParameters<QueryResult<UserListPaginationModel>, UserListParameter>
     {
         public readonly IRepository<User> _userRepository;
+        UserListPaginationModel result = null;
+
         public UserListPaginationQuery(IUnitOfWork unitOfWork)
         {
             _userRepository = unitOfWork.GetRepository<User>();
+            result = new UserListPaginationModel();
         }
 
-        public QueryResultList<UserListModel> Execute(UserListParameter parameters)
+        public QueryResult<UserListPaginationModel> Execute(UserListParameter parameters)
         {
             try
             {
-                var result = _userRepository.All()
+                result.TotalCount = _userRepository.Find(n => n.FirstName.ToLower().Contains(parameters.SearchKey.ToLower())).Count();
+                result.TotalPages = Math.Ceiling((double)result.TotalCount / parameters.PageSize);
+
+                result.Data = _userRepository.All()
                .Select(n => new UserListModel
                {
                    Id = n.Id,
@@ -29,23 +36,23 @@ namespace AspCoreData.Query.UserList
                    Email = n.Email,
                    Mobile = n.Mobile,
                    DateOfBirth = string.Format("{0:dd/MM/yyyy}", n.DateOfBirth)
-               }).ToList();
+               }).Skip((parameters.PageNumber - 1) * parameters.PageSize)
+                .Take(parameters.PageSize)
+                .ToList();
 
-                return new QueryResultList<UserListModel>()
+                return new QueryResult<UserListPaginationModel>()
                 {
                     Data = result,
-                    TotalCount = result.Count,
-                    TotalPages = int.Parse("1"),
                     IsExecuted = true,
                     Status = CommandQueryStatus.Executed,
-                    Message = result.Count != 0 ? "Query Executed Successfully" : "Records Not Found"
+                    Message = result.Data.Count != 0 ? "Query Executed Successfully" : "Records Not Found"
 
                 };
             }
             catch (Exception ex)
             {
 
-                return new QueryResultList<UserListModel>()
+                return new QueryResult<UserListPaginationModel>()
                 {
                     Data = null,
                     IsExecuted = true,

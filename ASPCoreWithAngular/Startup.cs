@@ -20,6 +20,7 @@ using AspCoreDomainModels.UserAddEdit;
 using AspCoreDomainModels.Models;
 using AspCoreDomainModels.Parameters;
 using AspCoreData.Query.UserById;
+using AspCoreDomainModels.Models.UserList;
 
 namespace ASPCoreWithAngular
 {
@@ -93,7 +94,7 @@ namespace ASPCoreWithAngular
             services.AddScoped(typeof(ICommand<int>), typeof(UserDeleteCommand));
             services.AddScoped<IUserList, UserListQuery>();
             services.AddScoped(typeof(IQueryWithParameters<UserAddEditModel, UserByIdParameter>), typeof(UserByIdQuery));
-            services.AddScoped(typeof(IQueryWithParameters<QueryResultList<UserListModel>, UserListParameter>), typeof(UserListPaginationQuery));
+            services.AddScoped(typeof(IQueryWithParameters<QueryResult<UserListPaginationModel>, UserListParameter>), typeof(UserListPaginationQuery));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
