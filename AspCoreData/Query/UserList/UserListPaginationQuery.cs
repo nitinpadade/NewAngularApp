@@ -4,6 +4,7 @@ using AspCoreDomainModels.Models.UserList;
 using AspCoreDomainModels.Parameters;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace AspCoreData.Query.UserList
@@ -35,7 +36,7 @@ namespace AspCoreData.Query.UserList
                    LastName = n.LastName,
                    Email = n.Email,
                    Mobile = n.Mobile,
-                   DateOfBirth = string.Format("{0:dd/MM/yyyy}", n.DateOfBirth)
+                   DateOfBirth = n.DateOfBirth.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
                }).Skip((parameters.PageNumber - 1) * parameters.PageSize)
                 .Take(parameters.PageSize)
                 .ToList();

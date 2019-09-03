@@ -1,5 +1,6 @@
 ﻿using AspCoreData.Contract;
 using AspCoreDomainModels.UserAddEdit;
+using System;
 using System.Linq;
 
 namespace AspCoreData.Command.UserAddEdit
@@ -15,7 +16,8 @@ namespace AspCoreData.Command.UserAddEdit
         }
 
         public UserAddEditModel Execute(UserAddEditModel obj)
-        {
+        {           
+
             if (obj.Id == 0)
             {
                var userObj = MapToTable(obj);
@@ -29,7 +31,7 @@ namespace AspCoreData.Command.UserAddEdit
                 userObj.FirstName = obj.FirstName;
                 userObj.MiddleName = obj.MiddleName;
                 userObj.LastName = obj.LastName;
-                userObj.DateOfBirth = obj.DateOfBirth.ToDate();
+                userObj.DateOfBirth = obj.DateOfBirth;
                 userObj.Email = obj.Email;
                 userObj.Mobile = obj.Mobile;
                 userObj.UserName = obj.UserName;
@@ -48,7 +50,7 @@ namespace AspCoreData.Command.UserAddEdit
                 FirstName = obj.FirstName,
                 MiddleName = obj.MiddleName,
                 LastName = obj.LastName,
-                DateOfBirth = obj.DateOfBirth.ToDate(),
+                DateOfBirth = obj.DateOfBirth,
                 Email = obj.Email,
                 Mobile = obj.Mobile,
                 UserName = obj.UserName,

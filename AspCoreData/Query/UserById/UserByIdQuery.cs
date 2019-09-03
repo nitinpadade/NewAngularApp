@@ -2,6 +2,7 @@
 using AspCoreDomainModels.Models;
 using AspCoreDomainModels.Parameters;
 using AspCoreDomainModels.UserAddEdit;
+using System.Globalization;
 using System.Linq;
 
 namespace AspCoreData.Query.UserById
@@ -14,6 +15,7 @@ namespace AspCoreData.Query.UserById
             _userRepository = unitOfWork.GetRepository<User>();
         }
 
+        // //.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), //string.Format("{0:dd/MM/yyyy}", n.DateOfBirth),
         public UserAddEditModel Execute(UserByIdParameter parameters)
         {
             if (parameters.Id > 0)
@@ -26,7 +28,7 @@ namespace AspCoreData.Query.UserById
                         LastName = n.LastName,
                         Email = n.Email,
                         Mobile = n.Mobile,
-                        DateOfBirth = string.Format("{0:dd/MM/yyyy}", n.DateOfBirth),
+                        DateOfBirth = n.DateOfBirth,                        
                         RoleId = n.RoleId,
                         UserName = n.UserName,
                         Password = n.Password
