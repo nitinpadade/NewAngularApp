@@ -36,7 +36,8 @@ namespace AspCoreData.Query.UserList
                    LastName = n.LastName,
                    Email = n.Email,
                    Mobile = n.Mobile,
-                   DateOfBirth = n.DateOfBirth.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
+                   DateOfBirth = n.DateOfBirth != null ? n.DateOfBirth.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture) : string.Empty,
+                   RoleId = n.RoleId,
                }).Skip((parameters.PageNumber - 1) * parameters.PageSize)
                 .Take(parameters.PageSize)
                 .ToList();
