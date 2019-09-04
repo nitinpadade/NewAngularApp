@@ -40,6 +40,8 @@
 
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="NewFolder1\" />
+    <Folder Include="NewFolder\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
 

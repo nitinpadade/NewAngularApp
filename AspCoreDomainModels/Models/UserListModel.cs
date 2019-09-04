@@ -22,7 +22,7 @@ namespace AspCoreDomainModels.Models
 
         public string Password { get; set; }
 
-        public int? RoleId { get; set; }
+        public int RoleId { get; set; }
 
         public string DateOfBirth { get; set; }
     }

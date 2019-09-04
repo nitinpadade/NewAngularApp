@@ -20,7 +20,7 @@ namespace AspCoreData.Command.UserAddEdit
 
             if (obj.Id == 0)
             {
-               var userObj = MapToTable(obj); 
+               var userObj = MapToTable(obj);
                 _userRepository.Add(userObj);
                 _unitOfWork.Commit();
                 obj.Id = userObj.Id;
