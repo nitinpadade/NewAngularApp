@@ -3,3 +3,5 @@
 ################################################################################
 
 /AspCoreData/App_Data/MyJobs_log.ldf
+/AspCoreData/App_Data/MyJobs.mdf
+/.vs/NewAngularApp/v15/Server/sqlite3/db.lock

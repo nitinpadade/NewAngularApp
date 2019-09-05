@@ -1,0 +1,12 @@
+D:\VS.2017\NewAngularApp\AspCoreData\bin\Debug\netcoreapp2.0\AspCoreData.deps.json
+D:\VS.2017\NewAngularApp\AspCoreData\bin\Debug\netcoreapp2.0\AspCoreData.dll
+D:\VS.2017\NewAngularApp\AspCoreData\bin\Debug\netcoreapp2.0\AspCoreData.pdb
+D:\VS.2017\NewAngularApp\AspCoreData\bin\Debug\netcoreapp2.0\AspCoreDomainModels.dll
+D:\VS.2017\NewAngularApp\AspCoreData\bin\Debug\netcoreapp2.0\AspCoreDomainModels.pdb
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.0\AspCoreData.csprojAssemblyReference.cache
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.0\AspCoreData.csproj.CoreCompileInputs.cache
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.0\AspCoreData.AssemblyInfoInputs.cache
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.0\AspCoreData.AssemblyInfo.cs
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.0\AspCoreData.csproj.CopyComplete
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.0\AspCoreData.dll
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.0\AspCoreData.pdb

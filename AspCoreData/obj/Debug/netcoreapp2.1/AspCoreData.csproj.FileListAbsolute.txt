@@ -1,0 +1,9 @@
+D:\VS.2017\NewAngularApp\AspCoreData\bin\Debug\netcoreapp2.1\AspCoreData.deps.json
+D:\VS.2017\NewAngularApp\AspCoreData\bin\Debug\netcoreapp2.1\AspCoreData.dll
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.1\AspCoreData.csproj.CoreCompileInputs.cache
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.1\AspCoreData.AssemblyInfoInputs.cache
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.1\AspCoreData.AssemblyInfo.cs
+D:\VS.2017\NewAngularApp\AspCoreData\bin\Debug\netcoreapp2.1\AspCoreData.pdb
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.1\AspCoreData.dll
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.1\AspCoreData.pdb
+D:\VS.2017\NewAngularApp\AspCoreData\obj\Debug\netcoreapp2.1\AspCoreData.csprojAssemblyReference.cache
