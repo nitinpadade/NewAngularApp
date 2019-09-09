@@ -38,7 +38,6 @@ namespace ASPCoreWithAngular.Controllers
 
         public IActionResult Get()
         {
-            //var result = _userList.Get(LoggedInUserInfo());
             var result = _userListQuery.Execute(new UserListParameter
             {
                 PageSize = 5,

@@ -7,8 +7,8 @@ namespace AspCoreData
     public class SchoolDataContext : DbContext
     {
         public DbSet<Role> Role { get; set; }
-
         public DbSet<User> User { get; set; }
+        public DbSet<EmployeerProfile> EmployeerProfile { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
