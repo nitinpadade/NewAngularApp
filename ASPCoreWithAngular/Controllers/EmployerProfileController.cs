@@ -1,6 +1,6 @@
 ﻿using AspCoreData;
 using AspCoreData.Contract;
-using AspCoreDomainModels.Models.EmployeerProfileAddEdit;
+using AspCoreDomainModels.Models.EmployeerProfile;
 using AspCoreDomainModels.Parameters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -28,6 +28,7 @@ namespace ASPCoreWithAngular.Controllers
         [Route("api/EmployerProfile/save")]
         public IActionResult Post([FromBody]EmployeerProfileModel model)
         {
+            model.UserId = LoggedInUserInfo().UserId;
             var result = _command.Execute(model);
             return Ok(result);
         }

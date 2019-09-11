@@ -1,5 +1,5 @@
 ﻿using AspCoreData.Contract;
-using AspCoreDomainModels.Models.EmployeerProfileAddEdit;
+using AspCoreDomainModels.Models.EmployeerProfile;
 using System.Linq;
 
 namespace AspCoreData.Command.EmployerProfileAddEdit
@@ -18,7 +18,7 @@ namespace AspCoreData.Command.EmployerProfileAddEdit
         {
             if (obj.Id == 0)
             {
-                var employerProfileObj = new EmployeerProfile { Name = obj.Name, Address = obj.Address, About = obj.About };
+                var employerProfileObj = new EmployeerProfile { Name = obj.Name, Address = obj.Address, About = obj.About, UserId = obj.UserId };
                 _empProfileRepository.Add(employerProfileObj);
                 _unitOfWork.Commit();
                 obj.Id = employerProfileObj.Id;

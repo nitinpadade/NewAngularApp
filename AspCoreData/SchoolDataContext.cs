@@ -9,6 +9,9 @@ namespace AspCoreData
         public DbSet<Role> Role { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<EmployeerProfile> EmployeerProfile { get; set; }
+        public DbSet<JobSeekerProfile> JobSeekerProfile { get; set; }
+        public DbSet<WorkExperience> WorkExperience { get; set; }
+         
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

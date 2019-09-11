@@ -17,13 +17,14 @@ using AspCoreData.Query.UserList;
 using AspCoreData.Command.UserAddEdit;
 using AspCoreData.Command.UserDelete;
 using AspCoreDomainModels.UserAddEdit;
-using AspCoreDomainModels.Models;
 using AspCoreDomainModels.Parameters;
 using AspCoreData.Query.UserById;
 using AspCoreDomainModels.Models.UserList;
-using AspCoreDomainModels.Models.EmployeerProfileAddEdit;
+using AspCoreDomainModels.Models.EmployeerProfile;
 using AspCoreData.Query.EmpProfile;
 using AspCoreData.Command.EmployerProfileAddEdit;
+using AspCoreDomainModels.Models.JobSeekerProfile;
+using AspCoreData.Query.SeekerProfile;
 
 namespace ASPCoreWithAngular
 {
@@ -100,6 +101,7 @@ namespace ASPCoreWithAngular
             services.AddScoped(typeof(IQueryWithParameters<QueryResult<UserListPaginationModel>, UserListParameter>), typeof(UserListPaginationQuery));
             services.AddScoped(typeof(ICommand<EmployeerProfileModel>), typeof(EmployerProfileCommand));
             services.AddScoped(typeof(IQueryWithParameters<QueryResult<EmployeerProfileModel>, EmployerProfileParameters>), typeof(EmployeerProfileQuery));
+            services.AddScoped(typeof(IQueryWithParameters<QueryResult<JobSeekerProfileModel>, JobSeekerProfileParameters>), typeof(JobSeekerProfileQuery));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

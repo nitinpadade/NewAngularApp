@@ -1,5 +1,5 @@
 ﻿using AspCoreData.Contract;
-using AspCoreDomainModels.Models.EmployeerProfileAddEdit;
+using AspCoreDomainModels.Models.EmployeerProfile;
 using AspCoreDomainModels.Parameters;
 using System.Linq;
 
@@ -28,10 +28,10 @@ namespace AspCoreData.Query.EmpProfile
                             Address = n.Address,
                             Name = n.Name
                         }).FirstOrDefault();
-                
+
                 return new QueryResult<EmployeerProfileModel>()
                 {
-                    Data = _empProfile,
+                    Data = _empProfile != null ? _empProfile : new EmployeerProfileModel(),
                     IsExecuted = true,
                     Status = CommandQueryStatus.Executed,
                     Message = _empProfile != null ? "Query Executed Successfully" : "Records Not Found"

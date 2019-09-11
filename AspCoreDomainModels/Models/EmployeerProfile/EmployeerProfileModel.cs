@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AspCoreDomainModels.Models.EmployeerProfileAddEdit
+﻿namespace AspCoreDomainModels.Models.EmployeerProfile
 {
     public class EmployeerProfileModel
     {
@@ -13,5 +9,7 @@ namespace AspCoreDomainModels.Models.EmployeerProfileAddEdit
         public string About { get; set; }
 
         public string Address { get; set; }
+
+        public int UserId { get; set; }
     }
 }
